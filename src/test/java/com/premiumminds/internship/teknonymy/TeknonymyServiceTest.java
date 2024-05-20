@@ -38,7 +38,7 @@ public class TeknonymyServiceTest {
                 new Person[]{new Person("Holy", 'F', null, LocalDateTime.of(1046, 1, 1, 0, 0))},
                 LocalDateTime.of(1046, 1, 1, 0, 0));
         String result = new TeknonymyService().getTeknonymy(person);
-        String expected = "father of Holy; ";
+        String expected = "father of Holy";
         assertEquals(expected, result);
     }
 
@@ -53,7 +53,7 @@ public class TeknonymyServiceTest {
                 },
                 LocalDateTime.of(1046, 1, 1, 0, 0));
         String result = new TeknonymyService().getTeknonymy(person);
-        String expected = "father of Holy; father of Molly; ";
+        String expected = "father of Holy";
         assertEquals(expected, result);
     }
 
@@ -69,7 +69,7 @@ public class TeknonymyServiceTest {
                 },
                 LocalDateTime.of(1046, 1, 1, 0, 0));
         String result = new TeknonymyService().getTeknonymy(person);
-        String expected = "father of Holy; father of Molly; father of Dolly; ";
+        String expected = "father of Holy";
         assertEquals(expected, result);
     }
 
@@ -90,7 +90,7 @@ public class TeknonymyServiceTest {
                 },
                 LocalDateTime.of(1046, 1, 1, 0, 0));
         String result = new TeknonymyService().getTeknonymy(person);
-        String expected = "father of Holy; father of Molly; father of Dolly; grandfather of Hanz; grandfather of Franz; grandfather of Polibanz; ";
+        String expected = "grandfather of Hanz";
         assertEquals(expected, result);
     }
 
@@ -121,10 +121,7 @@ public class TeknonymyServiceTest {
                 },
                 LocalDateTime.of(1046, 1, 1, 0, 0));
         String result = new TeknonymyService().getTeknonymy(person);
-        String expected = "father of Holy; father of Molly; father of Dolly; " +
-                "grandfather of Hanz; grandfather of Franz; grandfather of Polibanz; " +
-                "grandfather of Billy; grandfather of Milly; grandfather of Lilly; " +
-                "grandfather of Rosie; grandfather of Julie; grandfather of Sophie; ";
+        String expected = "grandfather of Hanz";
         assertEquals(expected, result);
     }
 
@@ -140,7 +137,7 @@ public class TeknonymyServiceTest {
                                                 new Person[]{
                                                         new Person("Daisy", 'F',
                                                                 new Person[]{
-                                                                        new Person("Maggie", 'F', null, LocalDateTime.of(1107, 1, 1, 0, 0)),
+                                                                        new Person("Maggie", 'F', null, LocalDateTime.of(1107, 1, 1, 1, 0)),
                                                                         new Person("Cassie", 'F', null, LocalDateTime.of(1107, 1, 1, 0, 0))},
                                                                 LocalDateTime.of(1100, 1, 1, 0, 0)),
                                                         new Person("Lacy", 'F', null, LocalDateTime.of(1101, 1, 1, 0, 0)),
@@ -188,17 +185,7 @@ public class TeknonymyServiceTest {
                 },
                 LocalDateTime.of(1046, 1, 1, 0, 0));
         String result = new TeknonymyService().getTeknonymy(person);
-        String expected = "father of Holy; father of Molly; father of Dolly; " +
-                "grandfather of Hanz; grandfather of Franz; grandfather of Polibanz; " +
-                "grandfather of Billy; grandfather of Milly; grandfather of Lilly; " +
-                "great-grandfather of Daisy; great-grandfather of Lacy; great-grandfather of Macy; " +
-                "great-grandfather of Hattie; great-grandfather of Cindy; great-grandfather of Mindy; great-grandfather of Tiffany; " +
-                "great-grandfather of Abby; great-grandfather of Fanny; great-grandfather of Brandy; " +
-                "great-grandfather of Emma; great-grandfather of Gemma; "+
-                "great-grandfather of Giulia; great-grandfather of Livia; "+
-                "great-great-grandfather of Maggie; great-great-grandfather of Cassie; great-great-grandfather of Rosie; " +
-                "great-great-great-grandfather of Julie; great-great-great-grandfather of Mark; " +
-                "great-great-great-great-grandfather of Sophie; ";
+        String expected = "great-great-great-great-grandfather of Sophie";
         assertEquals(expected, result);
     }
 }
